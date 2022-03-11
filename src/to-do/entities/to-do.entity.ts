@@ -16,7 +16,7 @@ export enum TodoStatus {
 
 @Entity('to_do')
 export class ToDo {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   id: number;
 
   @Column({ type: 'varchar', length: 300, nullable: false })
