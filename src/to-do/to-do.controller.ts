@@ -63,7 +63,7 @@ export class ToDoController {
     description: 'Get a todo list by name',
     type: [ToDoListDTO],
   })
-  @Get()
+  @Get(':name')
   @UseGuards(JwtAuthGuard)
   getATodoLists(@Query() params: GetSingleTaskQueryDto) {
     const { name: name } = params;
