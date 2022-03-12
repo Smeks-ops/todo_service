@@ -16,6 +16,7 @@ import { CreateToDoDto } from './dto/create-to-do.dto';
 import { UpdateToDoDto } from './dto/update-to-do.dto';
 import { ApiBearerAuth, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { GetTaskQueryDto } from './dto/get-task-query.dto';
+import { GetSingleTaskQueryDto } from './dto/get-single-query.dto';
 import { TodoStatus } from './entities/to-do.entity';
 import { JwtAuthGuard } from '../auth/guard/jwt-auth.guard';
 import { AuthUser } from '../auth/auth.decorator';
@@ -56,6 +57,17 @@ export class ToDoController {
       ToDoListDTO,
       this.toDoService.getTodoList(offset, limit, sort),
     );
+  }
+
+  @ApiOkResponse({
+    description: 'Get a todo list by name',
+    type: [ToDoListDTO],
+  })
+  @Get()
+  @UseGuards(JwtAuthGuard)
+  getATodoLists(@Query() params: GetSingleTaskQueryDto) {
+    const { name: name } = params;
+    return plainToClass(ToDoListDTO, this.toDoService.findByName(name));
   }
 
   @ApiOkResponse({

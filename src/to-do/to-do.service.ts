@@ -40,6 +40,14 @@ export class ToDoService {
     return query.getMany();
   }
 
+  async findByName(name: string): Promise<ToDo> {
+    return await this.todoRepository.findOne({
+      where: {
+        name: name,
+      },
+    });
+  }
+
   async updateATodoList(id: number, updateToDoDto: UpdateToDoDto) {
     return this.todoRepository.update(id, {
       name: updateToDoDto.name,
