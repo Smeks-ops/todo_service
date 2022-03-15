@@ -48,7 +48,7 @@ export class ToDoService {
     });
   }
 
-  async updateATodoList(id: number, updateToDoDto: UpdateToDoDto) {
+  async updateATodoList(id: string, updateToDoDto: UpdateToDoDto) {
     return this.todoRepository.update(id, {
       name: updateToDoDto.name,
       status: updateToDoDto.status,

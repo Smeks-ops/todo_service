@@ -76,7 +76,7 @@ export class ToDoController {
   @Put(':id')
   @UseGuards(JwtAuthGuard)
   updateATodoList(
-    @Param('id', ParseIntPipe) id: number,
+    @Param('id', ParseIntPipe) id: string,
     @Body() updateToDoDto: UpdateToDoDto,
   ) {
     const { status } = updateToDoDto;
