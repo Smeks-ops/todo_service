@@ -23,12 +23,12 @@ import { getMetadataArgsStorage } from 'typeorm';
       autoLoadEntities: true,
       entities: getMetadataArgsStorage().tables.map((tbl) => tbl.target),
       synchronize: true,
-      // ssl: true,
-      // extra: {
-      //   ssl: {
-      //     rejectUnauthorized: false,
-      //   },
-      // },
+      ssl: true,
+      extra: {
+        ssl: {
+          rejectUnauthorized: false,
+        },
+      },
     }),
     ToDoModule,
     UsersModule,

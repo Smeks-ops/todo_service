@@ -60,7 +60,7 @@ export class ToDoController {
   }
 
   @ApiOkResponse({
-    description: 'Get a todo list by name',
+    description: 'Get a todo listing by name',
     type: [ToDoListDTO],
   })
   @Get(':name')
