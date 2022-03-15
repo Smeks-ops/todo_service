@@ -1,6 +1,6 @@
 # TODO Server
 
-## API Doc - /api/v1/docs/
+## API Doc - https://oses-todo-app.herokuapp.com/api/v1/docs/
 
 ## HEROKU Link
 
